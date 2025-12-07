@@ -56,6 +56,7 @@ The program also generalizes the Monte Carlo method to n dimensions:
 - The user can input any number of dimensions.
 - Points are generated in an n-dimensional hypercube.
 - The fraction of points inside the hypersphere provides the volume estimate.
+
 A dashed horizontal line is added using:
 plt.axhline(e_area, color='blue', linestyle='--')
 to mark the exact known value for comparison.
