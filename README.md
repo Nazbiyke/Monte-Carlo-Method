@@ -63,6 +63,7 @@ to mark the exact known value for comparison.
 
 
 📎 **Summary**
+
 This project demonstrates:
 - Practical Monte Carlo simulation methods
 - Visualization techniques in 2D and 3D
