@@ -1,8 +1,69 @@
-# Math analysis2 project.
-## Python programs that estimate the area of a circle and the volume of a sphere using the Monte Carlo simulation method.
-To get started, I've imported libraries such as NumPy for numerical operations, Matplotlib, and Scipy. First off, we define parameters for the box containing the circle we're interested in, including the radius, the number of samples (N), and the dot size for visualisation. Then, we generate N random points within a square of side length 2, centered at the origin. Points with distances less than or equal to the radius are considered inside the circle.( Distance were calculated using the Euclidean distance formula, fist term is x and second one is y)
-Moving on, we estimate the circle's area using the Monte Carlo method: dividing the count of points inside the circle by the total number of points sampled and multiplying by the square size squared. Additionally, I've used the SciPy library to perform double integration over polar coordinates to find the real area of the circle and compare results in both cases.
-For visual clarity, I've applied a "Purple to Green" colormap, where as the high value points I have set those that inside the circle, so they are gonna be green and the remaining are purple. Running our code with 1000trials gives us a result close to reality. We'll also try 10,000 and 1,000,000 trials to see how accuracy improves with more points.
-Now, let's find the volume of a sphere. Since we're working in three dimensions, I've imported the Axes3D library. Although the code remains largely the same, note that we're dealing with a 3D array for the points, and we square every element of the array. By specifying axis=1, we sum along columns instead of rows.
-Creating a new figure with a size of 5 by 5, we add a subplot to the figure, where '111' signifies a single plot arranged in a 1x1 grid with a 3D projection.
-Finally, I've written a program to estimate the volume of a sphere in higher dimensions. While the code structure remains unchanged, users can now input dimensions. Additionally, I've used plt.axhline(e_area, color='blue', linestyle='--') to add a horizontal dashed line at the y-coordinate specified by the  e_area to the plot.
+# Math Analysis II Project
+## Monte Carlo Estimation of Circle Area and Sphere Volume 
+📘 **Project Overview**
+This project implements Python programs that estimate:
+- The area of a circle (2D)
+- The volume of a sphere (3D)
+- The volume of a hypersphere in higher dimensions
+All calculations use the Monte Carlo simulation method, combined with visualization through Matplotlib.
+🔹 **Estimating the Area of a Circle (2D)**
+Setup
+To begin, the program imports:
+- NumPy for numerical computations
+- Matplotlib for visualization
+- SciPy for numerical integration
+We define parameters such as:
+- Circle radius
+- Number of random samples N
+- Dot size for plotting
+- Boundaries of the square containing the circle
+Method
+- Generate N random points inside a square of side length 2, centered at the origin.
+- Calculate each point’s Euclidean distance from the center.
+- Points with distance ≤ radius are counted as inside the circle.
+- Estimate the area using the Monte Carlo formula:
+Area
+≈
+Points Inside
+N
+×
+(
+Square Side
+)
+2
+Area≈ 
+N
+Points Inside
+​	
+ ×(Square Side) 
+2
+ 
+To compare, SciPy performs double integration in polar coordinates to calculate the exact area.
+Visualization
+A custom Purple → Green colormap is used:
+- Green = points inside the circle
+- Purple = points outside
+Simulations with 1,000, 10,000, and 1,000,000 trials show how accuracy increases with more samples.
+🔹 **Estimating the Volume of a Sphere (3D)**
+Method
+- The 3D version follows the same logic, with a few differences:
+- Random points are generated in three dimensions.
+- Distances are computed using a 3D NumPy array; squaring is applied element-wise.
+- Using axis=1, we sum values across each point’s coordinates.
+A 3D visualization is created using:
+ax = fig.add_subplot(111, projection='3d')
+This produces a clear model of how points fill the surrounding cube and sphere.
+🔹 **Higher-Dimensional Sphere Volume**
+The program also generalizes the Monte Carlo method to n dimensions:
+- The user can input any number of dimensions.
+- Points are generated in an n-dimensional hypercube.
+- The fraction of points inside the hypersphere provides the volume estimate.
+A dashed horizontal line is added using:
+plt.axhline(e_area, color='blue', linestyle='--')
+to mark the exact known value for comparison.
+📎 **Summary**
+This project demonstrates:
+- Practical Monte Carlo simulation methods
+- Visualization techniques in 2D and 3D
+- Higher-dimensional geometry concepts
+- Accuracy improvement with increased sample sizes
