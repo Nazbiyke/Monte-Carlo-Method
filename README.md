@@ -21,26 +21,13 @@ We define parameters such as:
 - Dot size for plotting
 - Boundaries of the square containing the circle
 
-Method
+Method:
 - Generate N random points inside a square of side length 2, centered at the origin.
 - Calculate each point’s Euclidean distance from the center.
 - Points with distance ≤ radius are counted as inside the circle.
 - Estimate the area using the Monte Carlo formula:
-Area
-≈
-Points Inside
-N
-×
-(
-Square Side
-)
-2
-Area≈ 
-N
-Points Inside
-​	
- ×(Square Side) 
-2
+Area≈(Points Inside/N)×(Square Side)<sup>2</sup>
+
  
 To compare, SciPy performs double integration in polar coordinates to calculate the exact area.
 Visualization
@@ -52,7 +39,7 @@ Simulations with 1,000, 10,000, and 1,000,000 trials show how accuracy increases
 
 🔹 **Estimating the Volume of a Sphere (3D)**
 
-Method
+Method:
 - The 3D version follows the same logic, with a few differences:
 - Random points are generated in three dimensions.
 - Distances are computed using a 3D NumPy array; squaring is applied element-wise.
